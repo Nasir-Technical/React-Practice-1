@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+.box{
+  /* border: 2px solid rgb(8, 8, 8); */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.mobile{
+  border: 5px solid rgb(0, 255, 255);
+  margin: 10px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.mobile:hover{
+  padding: 30px;
+  background-color: rgb(173, 173, 181);
+  transition: 0.5s;
+}
