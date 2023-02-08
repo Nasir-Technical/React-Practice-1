@@ -36,24 +36,41 @@
     transform: rotate(360deg);
   }
 }
-.box{
+/* .box{ */
   /* border: 2px solid rgb(8, 8, 8); */
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-}
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
+/* } */
 
 
-.mobile{
+ /* .mobile{
   border: 5px solid rgb(0, 255, 255);
   margin: 10px;
   border-radius: 10px;
   padding: 10px;
+} */
+
+.but:hover{
+  /* padding: 30px; */
+  background-color: cyan;
+  transition: 0.5s;
 }
 
-.mobile:hover{
-  padding: 30px;
-  background-color: rgb(173, 173, 181);
-  transition: 0.5s;
+p{
+  font-size: 1em;
+}
+
+input{
+  font-size: 1em;
+}
+
+.but{
+  font-size: 1em;
+    padding: 10px;
+    border: 5px solid rgb(0, 255, 187);
+    border-radius: 20px;
+    border-style: inset;
+    color: black;
 }

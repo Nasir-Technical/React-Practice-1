@@ -1,141 +1,63 @@
-import logo from './logo.svg';
-import './App.css';
-
-
-
-let mobiles = [
-  {
-    name: "a30",
-    ram: "4gb",
-    rom: "64gb",
-    camera: "50px",
-    price: 2000,
-    brand: "samsung",
-  },
-  {
-    name: "note10",
-    ram: "6gb",
-    rom: "128gb",
-    camera: "50px",
-    price: 4000,
-    brand: "samsung",
-  },
-  {
-    name: "s10",
-    ram: "3gb",
-    rom: "128gb",
-    camera: "10px",
-    price: 5000,
-    brand: "samsung",
-  },
-  {
-    name: "iphone4",
-    ram: "4gb",
-    rom: "64gb",
-    camera: "50px",
-    price: 10000,
-    brand: "iphone",
-  },
-  {
-    name: "iphone4s",
-    ram: "4gb",
-    rom: "64gb",
-    camera: "50px",
-    price: 20000,
-    brand: "iphone",
-  },
-  {
-    name: "iphone5",
-    ram: "4gb",
-    rom: "64gb",
-    camera: "50px",
-    price: 30000,
-    brand: "iphone",
-  },
-  {
-    name: "iphone6",
-    ram: "4gb",
-    rom: "64gb",
-    camera: "50px",
-    price: 30000,
-    brand: "iphone",
-  },
-  {
-    name: "redminote10",
-    ram: "4gb",
-    rom: "64gb",
-    camera: "50px",
-    price: 10000,
-    brand: "xiaomi",
-  },
-  {
-    name: "redminote11",
-    ram: "4gb",
-    rom: "64gb",
-    camera: "50px",
-    price: 10000,
-    brand: "xiaomi",
-  },
-  {
-    name: "redmi10",
-    ram: "4gb",
-    rom: "64gb",
-    camera: "50px",
-    price: 10000,
-    brand: "xiaomi",
-  },
-  {
-    name: "redmi10pro",
-    ram: "4gb",
-    rom: "64gb",
-    camera: "50px",
-    price: 10000,
-    brand: "xiaomi",
-  },
-  {
-    name: "a3s",
-    ram: "4gb",
-    rom: "64gb",
-    camera: "50px",
-    price: 10000,
-    brand: "oppo",
-  },
-  {
-    name: "redmi10pro",
-    ram: "4gb",
-    rom: "64gb",
-    camera: "50px",
-    price: 10000,
-    brand: "xiaomi",
-  },
-  {
-    name: "a3s",
-    ram: "4gb",
-    rom: "64gb",
-    camera: "50px",
-    price: 10000,
-    brand: "oppo",
-  },
-];
+import logo from "./logo.svg";
+import "./App.css";
+import { useState } from "react";
 
 function App() {
+  const [count, setCount] = useState(0);
+  const [arr, setArr] = useState(["ToDo", "App"]);
+
+  const [text, setText] = useState("");
+
+  let add = () => {
+    arr.push(text);
+    console.log(arr);
+    setArr([...arr]);
+  };
+
+  let delet = () => {
+    arr.splice(text);
+    console.log(arr);
+    setText([...arr]);
+  };
+
+ 
+  let del = (i) => {
+    arr.splice(i , 1);
+    console.log(arr);
+    setArr([...arr]);
+  };
+
+  let edit = (i)=>{
+    // get prompt
+    let a = prompt("enter value", arr[i]);
+    // arr[i] == prompt value
+    arr[i] = a;
+    // set State of Array
+    setArr([...arr]);
+  }
+
+  
+
   return (
     <div className="App">
+      <h1>ToDo App</h1>
       <header className="App-header">
-
-        <section className="box" >
-          {mobiles.map((x) => {
-            return (
-              <div className="mobile">
-                <h1>{x.brand}</h1>
-                <p>{x.name}</p>
-                <p>Rs {x.price}</p>
-              </div>
-
-            )
-          })}
-        </section>
-
+      {arr.map((x, i) => (
+          <p>{x} <button className="but" onClick={()=>del(i)}>delet</button> <button className="but" onClick={()=>edit(i)}>edit</button></p>
+        ))}
+        
+        
+        <input
+          onChange={(e) => {
+            setText(e.target.value);
+          }}
+          placeholder="Enter Text"
+        /> 
+          
+         
+        <p>{text}</p>
+        
+        <p> <button className="but" onClick={add}>Add</button>  <button className="but" onClick={()=>delet()}>all delet</button></p>
       </header>
     </div>
   );
